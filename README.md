@@ -35,6 +35,8 @@ cargo install just
 Main install:
 
 ```sh
+cd ~
+
 # clone this repository
 mkdir -p github.com/wasmerio && cd github.com/wasmerio
 git clone https://github.com/robinvanemden/go-ext-wasm.git
