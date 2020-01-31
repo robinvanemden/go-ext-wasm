@@ -15,28 +15,36 @@
     <img src="https://img.shields.io/github/license/wasmerio/wasmer.svg" alt="License" valign="middle"></a>
 </p>
 
-Wasmer is a Go library for executing WebAssembly binaries.
+This fork is configured to build and make use of the LLVM c library backend.
 
 # Install
 
-To install the library, follow the classical:
-
 ```sh
-# Enable cgo
-$ export CGO_ENABLED=1; export CC=gcc;
+# install rust and cargo
+curl https://sh.rustup.rs -sSf | sh
 
-$ go get github.com/wasmerio/go-ext-wasm/wasmer
-```
+# install zlib and clang 8
+apt-get install zlib1g-dev clang-8 lldb-8 lld-8
 
-It will work on many macOS and Linux distributions. It will not work
-on Windows yet, we are working on it.
+# install just
+cargo install just
 
-If the pre-compiled shared libraries are not compatible with your system, try installing manually with the following command:
+# clone this repository
+mkdir -p github.com/wasmerio && cd github.com/wasmerio
+git clone https://github.com/scailable/go-ext-wasm.git
 
-```sh
-$ just build-runtime
-$ just build
-$ go install github.com/wasmerio/go-ext-wasm/wasmer
+cd go-ext-wasm
+
+# enable cgo
+export CGO_ENABLED=1; export CC=gcc;
+
+# build and install
+just build-runtime
+just build
+go install github.com/wasmerio/go-ext-wasm/wasmer
+
+# optionally install globally
+cp -rf ../../../github.com/ $GOPATH/src/
 ```
 
 # Documentation
