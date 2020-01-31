@@ -19,6 +19,8 @@ This fork is configured to build and make use of the LLVM c library backend.
 
 # Install
 
+Prerequisites:
+
 ```sh
 # install rust and cargo
 curl https://sh.rustup.rs -sSf | sh
@@ -28,6 +30,14 @@ apt-get install zlib1g-dev clang-8 lldb-8 lld-8
 
 # install just
 cargo install just
+```
+
+Main install:
+
+```sh
+# optionally
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # clone this repository
 mkdir -p github.com/wasmerio && cd github.com/wasmerio
