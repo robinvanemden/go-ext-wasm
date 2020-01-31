@@ -35,10 +35,6 @@ cargo install just
 Main install:
 
 ```sh
-# optionally
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
 # clone this repository
 mkdir -p github.com/wasmerio && cd github.com/wasmerio
 git clone https://github.com/robinvanemden/go-ext-wasm.git
@@ -53,7 +49,9 @@ just build-runtime
 just build
 go install github.com/wasmerio/go-ext-wasm/wasmer
 
-# optionally install globally
+# optionally: install globally
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 cp -rf ../../../github.com/ $GOPATH/src/
 ```
 
